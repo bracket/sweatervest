@@ -3,6 +3,7 @@ import yaml
 __all__ = [
     'parse_scene',
     'register_class',
+    'convert_to_object',
 ]
 
 

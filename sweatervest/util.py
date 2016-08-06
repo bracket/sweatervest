@@ -31,3 +31,12 @@ def parse_color(string):
         R, G, B = double[0:2], double[2:4], double[4:6]
         A = 'ff' if len(double) == 6 else double[6:8]
         return tuple(int(v, 16) for v in (R, G, B, A))
+
+
+def color_to_float(color):
+    if color is None:
+        return (1., 1., 1., 1.)
+    elif isinstance(color, str):
+        return tuple(c / 255. for c in parse_color(color))
+    else:
+        return tuple(c / 255. if isinstance(c, int) else c for c in color)

@@ -1,5 +1,6 @@
 from .parser import register_class
-from .util import parse_color
+from .util import color_to_float
+
 import numpy as np
 
 @register_class
@@ -7,12 +8,12 @@ class MicropolygonMesh(object):
     def __init__(self, data):
         self.data = data
 
-        input = np.array(
+        vertices = np.array(
             data['vertices'],
             dtype=np.float32,
         )
 
-        self.vertices = self.reshape_input(input, data.get('color'))
+        self.vertices = self.reshape_input(vertices, data.get('color'))
 
 
     def reshape_input(self, input, color=None):
@@ -39,16 +40,7 @@ class MicropolygonMesh(object):
         if dimension < 4:
             out[:,:,3] = 1
 
-        if color is None:
-            color = np.array([0, 0, 0, 0], dtype=np.float32).reshape([1, 1, 4])
-        elif isinstance(color, str):
-            color = [ c / 255. for c in parse_color(color)]
-            color = np.array(color, dtype=np.float32).reshape([1, 1, 4])
-        elif isinstance(color, (tuple, list)):
-            color = [ c / 255. if isinstance(c, int) else c for c in color ]
-            color = np.array(color, dtype=np.float32).reshape([1, 1, 4])
-        
-        out[:,:,4:] = color
+        out[:,:,4:] = color_to_float(color)
 
         return out
 
