@@ -7,3 +7,4 @@ from .circle import Circle
 from .group import Group
 from .micropolygonmesh import MicropolygonMesh
 from .scene import Scene
+from .linepath import LinePath

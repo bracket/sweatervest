@@ -35,7 +35,7 @@ def parse_color(string):
 
 def color_to_float(color):
     if color is None:
-        return (1., 1., 1., 1.)
+        return (0., 0., 0., 0.)
     elif isinstance(color, str):
         return tuple(c / 255. for c in parse_color(color))
     else:
