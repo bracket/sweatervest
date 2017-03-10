@@ -1,0 +1,43 @@
+{
+    "__class__" : "Scene",
+
+    "resources"  : {
+    },
+
+    "canvas" : {
+        "extents" : [ 512, 512 ],
+        "color"   : "white"
+    },
+
+    "top" : {
+        "__class__" : "Group",
+        "id"    : "#main",
+        "tags"  : [ "top" ],
+
+        "transformation" : [
+            [ 1, 0, 0, 0 ],
+            [ 0, 1, 0, 0 ],
+            [ 0, 0, 1, 0 ],
+            [ 0, 0, 0, 1 ],
+        ],
+
+        "children" : [
+            {
+                "__class__" : "MicropolygonMesh",
+                "id"        : "#weasel",
+                "vertices"  :
+                [
+                    [
+                        [ 16,  16, 1, 1  ],
+                        [ 128, 16, 1, 1  ]
+                    ],
+                    [
+                        [ 384, 496, 1, 1 ],
+                        [ 496, 496, 1, 1 ]
+                    ]
+                ],
+                "color" : "#f00"
+            }
+        ]
+    }
+}
