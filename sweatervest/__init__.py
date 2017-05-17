@@ -8,3 +8,4 @@ from .group import Group
 from .micropolygonmesh import MicropolygonMesh
 from .scene import Scene
 from .linepath import LinePath
+from .convex_polygon import ConvexPolygon
