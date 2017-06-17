@@ -54,6 +54,7 @@ def reshape_vertices(input, color=None):
         slice_at = lambda x: np.s_[:,x]
         slice_to = lambda x: np.s_[:,:x]
         slice_from = lambda x: np.s_[:,x:]
+
     elif len(shape) == 3:
         dimension = shape[2]
         shape[2] = 8
