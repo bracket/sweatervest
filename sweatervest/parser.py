@@ -31,9 +31,9 @@ def convert_to_object(parsed):
 def parse_scene_yaml(file_or_path):
     if isinstance(file_or_path, str):
         with open(file_or_path) as fd:
-            return yaml.load(fd)
+            return yaml.safe_load(fd)
     else:
-        return yaml.load(file_or_path)
+        return yaml.safe_load(file_or_path)
 
 
 def register_class(cls):
